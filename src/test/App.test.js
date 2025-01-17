@@ -42,4 +42,10 @@ describe('Calculator Component', () => {
         expect(screen.getByRole('button', { name: 'C' })).toBeInTheDocument();
         expect(screen.getByRole('button', { name: '=' })).toBeInTheDocument();
     });
+
+    it('should display the initial state correct', () => {
+        render(<Calculator />)
+        const display = screen.getByTestId('input-result')
+        expect(display).toHaveTextContent('0')
+    });
 })

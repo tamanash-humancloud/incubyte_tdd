@@ -4,7 +4,7 @@ const Calculator = () => {
     const [firstNumber, setFirstNumber] = useState('')
     const [secondNumber, setSecondNumber] = useState('')
     const [operator, setOperator] = useState('')
-    const [display, setDisplay] = useState('')
+    const [display, setDisplay] = useState('0')
 
   return (
     <div className='calculator' data-testid="calculator">
