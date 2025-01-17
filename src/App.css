@@ -12,3 +12,14 @@
     border-radius: 15px;
     margin: 50px auto;
 }
+
+.display {
+    border: 2px solid black;
+    height: 50px;
+    border-radius: 15px;
+    width: 90%;  
+    padding: 10px;
+    text-align: end;
+    font-size: 20px;
+    margin-top: 10px;
+  }
