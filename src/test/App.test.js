@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Calculator from '../components/calculator';
 
 describe('Calculator Component', () => {
@@ -47,5 +48,30 @@ describe('Calculator Component', () => {
         render(<Calculator />)
         const display = screen.getByTestId('input-result')
         expect(display).toHaveTextContent('0')
+    });
+
+    it('should handle number inputs correctly', async () => {
+        render(<Calculator />);
+        userEvent.click(screen.getByRole('button', { name: '7' }));
+        userEvent.click(screen.getByRole('button', { name: '8' }));
+
+        await waitFor(() => {
+            const display = screen.getByTestId('input-result')
+            expect(display).toHaveTextContent('78');
+        })
+    });
+
+    it('should handle operator inputs correctly', async () => {
+        render(<Calculator />);
+        userEvent.click(screen.getByRole('button', { name: '7' }));
+        userEvent.click(screen.getByRole('button', { name: '+' }));
+
+        await waitFor(() => {
+            const display = screen.getByTestId('input-result') 
+            expect(display).toHaveTextContent('0'); 
+
+            const eq = screen.getByTestId('equation')
+            expect(eq).toHaveTextContent('7 +')
+        })
     });
 })
