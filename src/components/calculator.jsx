@@ -5,18 +5,27 @@ const Calculator = () => {
     const [secondNumber, setSecondNumber] = useState('')
     const [operator, setOperator] = useState('')
     const [display, setDisplay] = useState('0')
+    const [result, setResult] = useState(0);
 
     const handleInput = (value) => {
         if (firstNumber && operator) {
             setDisplay(secondNumber + value)
             setSecondNumber(prev => prev + value)
         } else {
+            if(result !== 0){
+                setResult(0)
+            }
+
             setDisplay(firstNumber + value)
             setFirstNumber(prev => prev + value)
         }
     }
 
     const handleOperator = (value) => {
+        if(result > 0){
+            setFirstNumber(result.toString())
+        }
+
         setOperator(value)
         setDisplay('0')
     }
@@ -43,10 +52,12 @@ const Calculator = () => {
                 setSecondNumber('');
                 setOperator('');
                 setDisplay('0');
+                setResult(0)
                 break;
             case '=':
                 const ans = getResult();
                 setDisplay(ans);
+                setResult(ans)
                 setFirstNumber('');
                 setSecondNumber('');
                 setOperator('');

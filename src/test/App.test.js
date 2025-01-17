@@ -152,4 +152,20 @@ describe('Calculator Component', () => {
             expect(display).toHaveTextContent('Infinity'); 
         })
     });
+
+    it('should handle multiple operations correctly', async () => {
+        render(<Calculator />);
+        userEvent.click(screen.getByRole('button', { name: '5' }));
+        userEvent.click(screen.getByRole('button', { name: '+' }));
+        userEvent.click(screen.getByRole('button', { name: '3' }));
+        userEvent.click(screen.getByRole('button', { name: '=' })); 
+        userEvent.click(screen.getByRole('button', { name: '*' }));
+        userEvent.click(screen.getByRole('button', { name: '2' }));
+        userEvent.click(screen.getByRole('button', { name: '=' }));
+
+        await waitFor(() => {
+            const display = screen.getByTestId('input-result') 
+            expect(display).toHaveTextContent('16'); 
+        })
+    });
 })
