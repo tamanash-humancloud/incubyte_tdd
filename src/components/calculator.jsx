@@ -7,31 +7,33 @@ const Calculator = () => {
     const [display, setDisplay] = useState('0')
 
     const handleInput = (value) => {
-        if(firstNumber && operator){
+        if (firstNumber && operator) {
             setDisplay(secondNumber + value)
-            setSecondNumber(prev => prev+value)
+            setSecondNumber(prev => prev + value)
         } else {
             setDisplay(firstNumber + value)
-            setFirstNumber(prev => prev+value)
+            setFirstNumber(prev => prev + value)
         }
     }
-    
+
     const handleOperator = (value) => {
         setOperator(value)
         setDisplay('0')
     }
 
     const getResult = () => {
-        switch(operator) {
+        switch (operator) {
             case '+':
                 return parseInt(firstNumber) + parseInt(secondNumber)
+            case '-':
+                return parseInt(firstNumber) - parseInt(secondNumber)
             default:
                 return
         }
     }
 
     const handleUtility = (value) => {
-        switch(value) {
+        switch (value) {
             case 'C':
                 setFirstNumber('');
                 setSecondNumber('');
@@ -44,7 +46,6 @@ const Calculator = () => {
                 setFirstNumber('');
                 setSecondNumber('');
                 setOperator('');
-                break;
                 break;
             default:
                 return
