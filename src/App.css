@@ -1,4 +1,4 @@
-.App{
+.App {
     width: 100vw;
 }
 
@@ -17,7 +17,7 @@
     border: 2px solid black;
     height: 50px;
     border-radius: 15px;
-    width: 90%;  
+    width: 90%;
     padding: 10px;
     text-align: end;
     font-size: 20px;
@@ -29,23 +29,35 @@ button {
     font-size: 26px;
     border-radius: 5px;
 }
-  
+
 .button-wrapper {
     display: flex;
     flex: row;
     margin: 10px auto;
 }
 
-.button-wrapper > div {
+.button-wrapper>div {
     margin: 6px;
 }
-  
+
 .input-wrapper {
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 10px;
 }
 
-.last-input{
+.last-input {
     grid-column: 1 / span 3;
+}
+
+.action-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.operator {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    margin-bottom: 10px;
 }

@@ -4,15 +4,15 @@ import Calculator from '../components/calculator';
 describe('Calculator Component', () => {
     it('renders the Calculator component', () => {
         render(<Calculator />);
-        expect(screen.getByTestId('calculator')).toBeInTheDocument(); 
+        expect(screen.getByTestId('calculator')).toBeInTheDocument();
     });
 
 
     it('renders the display and its children', () => {
         render(<Calculator />);
         expect(screen.getByTestId('display')).toBeInTheDocument();
-        expect(screen.getByTestId('equation')).toBeInTheDocument(); 
-        expect(screen.getByTestId('input-result')).toBeInTheDocument();  
+        expect(screen.getByTestId('equation')).toBeInTheDocument();
+        expect(screen.getByTestId('input-result')).toBeInTheDocument();
     });
 
     it('renders number input buttons', () => {
@@ -27,5 +27,13 @@ describe('Calculator Component', () => {
         expect(screen.getByRole('button', { name: '2' })).toBeInTheDocument();
         expect(screen.getByRole('button', { name: '3' })).toBeInTheDocument();
         expect(screen.getByRole('button', { name: '0' })).toBeInTheDocument();
+    });
+
+    it('renders operator buttons', () => {
+        render(<Calculator />);
+        expect(screen.getByRole('button', { name: '+' })).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: '-' })).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: '*' })).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: '/' })).toBeInTheDocument();
     });
 })

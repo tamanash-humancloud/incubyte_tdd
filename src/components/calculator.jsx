@@ -32,6 +32,15 @@ const Calculator = () => {
                 <button>3</button>
                 <button className='last-input'>0</button>
             </div>
+            <div className='action-wrapper'>
+                {/* Operator Buttons */}
+                <div className='operator'>
+                    <button>+</button>
+                    <button>-</button>
+                    <button>*</button>
+                    <button>/</button>
+                </div>
+            </div>
         </div>
     </div>
   )
