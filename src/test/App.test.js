@@ -139,4 +139,17 @@ describe('Calculator Component', () => {
             expect(display).toHaveTextContent('3'); 
         })
     });
+
+    it('should handle edge case of dividing by 0', async () => {
+        render(<Calculator />);
+        userEvent.click(screen.getByRole('button', { name: '9' }));
+        userEvent.click(screen.getByRole('button', { name: '/' }));
+        userEvent.click(screen.getByRole('button', { name: '0' }));
+        userEvent.click(screen.getByRole('button', { name: '=' }));
+
+        await waitFor(() => {
+            const display = screen.getByTestId('input-result') 
+            expect(display).toHaveTextContent('Infinity'); 
+        })
+    });
 })
