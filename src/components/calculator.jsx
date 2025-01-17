@@ -40,6 +40,11 @@ const Calculator = () => {
                     <button>*</button>
                     <button>/</button>
                 </div>
+                {/* Utility Buttons */}
+                <div className='utility'>
+                    <button className='bg-danger'>C</button>
+                    <button className='bg-success'>=</button>
+                </div>
             </div>
         </div>
     </div>

@@ -61,3 +61,19 @@ button {
     gap: 10px;
     margin-bottom: 10px;
 }
+
+.utility {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+}
+
+.bg-success {
+    background-color: rgb(46, 182, 46);
+    color: white;
+}
+
+.bg-danger {
+    background-color: rgb(212, 20, 20);
+    color: white;
+}

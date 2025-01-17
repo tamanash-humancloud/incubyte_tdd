@@ -36,4 +36,10 @@ describe('Calculator Component', () => {
         expect(screen.getByRole('button', { name: '*' })).toBeInTheDocument();
         expect(screen.getByRole('button', { name: '/' })).toBeInTheDocument();
     });
+
+    it('renders utility buttons', () => {
+        render(<Calculator />);
+        expect(screen.getByRole('button', { name: 'C' })).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: '=' })).toBeInTheDocument();
+    });
 })
