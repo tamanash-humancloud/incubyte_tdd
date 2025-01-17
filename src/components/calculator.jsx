@@ -21,6 +21,15 @@ const Calculator = () => {
         setDisplay('0')
     }
 
+    const getResult = () => {
+        switch(operator) {
+            case '+':
+                return parseInt(firstNumber) + parseInt(secondNumber)
+            default:
+                return
+        }
+    }
+
     const handleUtility = (value) => {
         switch(value) {
             case 'C':
@@ -30,6 +39,12 @@ const Calculator = () => {
                 setDisplay('0');
                 break;
             case '=':
+                const ans = getResult();
+                setDisplay(ans);
+                setFirstNumber('');
+                setSecondNumber('');
+                setOperator('');
+                break;
                 break;
             default:
                 return

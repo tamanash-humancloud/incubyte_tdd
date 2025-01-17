@@ -87,4 +87,17 @@ describe('Calculator Component', () => {
             expect(display).toHaveTextContent('0');
         })
     });
+
+    it('should handle addition correctly', async () => {
+        render(<Calculator />);
+        userEvent.click(screen.getByRole('button', { name: '8' }));
+        userEvent.click(screen.getByRole('button', { name: '+' }));
+        userEvent.click(screen.getByRole('button', { name: '5' }));
+        userEvent.click(screen.getByRole('button', { name: '=' }));
+
+        await waitFor(() => {
+            const display = screen.getByTestId('input-result')
+            expect(display).toHaveTextContent('13'); 
+        })
+    });
 })
