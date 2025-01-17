@@ -22,4 +22,30 @@
     text-align: end;
     font-size: 20px;
     margin-top: 10px;
-  }
+}
+
+button {
+    padding: 20px;
+    font-size: 26px;
+    border-radius: 5px;
+}
+  
+.button-wrapper {
+    display: flex;
+    flex: row;
+    margin: 10px auto;
+}
+
+.button-wrapper > div {
+    margin: 6px;
+}
+  
+.input-wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+
+.last-input{
+    grid-column: 1 / span 3;
+}
