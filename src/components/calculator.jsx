@@ -21,6 +21,21 @@ const Calculator = () => {
         setDisplay('0')
     }
 
+    const handleUtility = (value) => {
+        switch(value) {
+            case 'C':
+                setFirstNumber('');
+                setSecondNumber('');
+                setOperator('');
+                setDisplay('0');
+                break;
+            case '=':
+                break;
+            default:
+                return
+        }
+    }
+
     return (
         <div className='calculator' data-testid="calculator">
             <div className='display' data-testid="display">
@@ -57,8 +72,8 @@ const Calculator = () => {
                     </div>
                     {/* Utility Buttons */}
                     <div className='utility'>
-                        <button className='bg-danger'>C</button>
-                        <button className='bg-success'>=</button>
+                        <button className='bg-danger' onClick={() => handleUtility('C')}>C</button>
+                        <button className='bg-success' onClick={() => handleUtility('=')}>=</button>
                     </div>
                 </div>
             </div>

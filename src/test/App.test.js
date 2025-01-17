@@ -74,4 +74,17 @@ describe('Calculator Component', () => {
             expect(eq).toHaveTextContent('7 +')
         })
     });
+
+    it('should handle clear button correctly', async () => {
+        render(<Calculator />);
+        userEvent.click(screen.getByRole('button', { name: '5' }));
+        userEvent.click(screen.getByRole('button', { name: '+' }));
+        userEvent.click(screen.getByRole('button', { name: '3' }));
+        userEvent.click(screen.getByRole('button', { name: 'C' })); 
+        
+        await waitFor(() => {
+            const display = screen.getByTestId('input-result') 
+            expect(display).toHaveTextContent('0');
+        })
+    });
 })
