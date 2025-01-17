@@ -113,4 +113,17 @@ describe('Calculator Component', () => {
             expect(display).toHaveTextContent('5'); 
         })
     });
+
+    it('should handle multiplication correctly', async () => {
+        render(<Calculator />);
+        userEvent.click(screen.getByRole('button', { name: '4' }));
+        userEvent.click(screen.getByRole('button', { name: '*' }));
+        userEvent.click(screen.getByRole('button', { name: '2' }));
+        userEvent.click(screen.getByRole('button', { name: '=' }));
+
+        await waitFor(() => {
+            const display = screen.getByTestId('input-result') 
+            expect(display).toHaveTextContent('8'); 
+        })
+    });
 })

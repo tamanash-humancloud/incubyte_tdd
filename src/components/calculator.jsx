@@ -27,6 +27,8 @@ const Calculator = () => {
                 return parseInt(firstNumber) + parseInt(secondNumber)
             case '-':
                 return parseInt(firstNumber) - parseInt(secondNumber)
+            case '*':
+                return parseInt(firstNumber) * parseInt(secondNumber)
             default:
                 return
         }
